@@ -1,0 +1,13 @@
+name: "Run Danger (central rules)"
+description: "Runs danger ci with org-wide rules bundled in this action"
+inputs:
+  token:
+    description: "GitHub token with pull-requests: write"
+    required: true
+  node_version:
+    description: "Node version"
+    required: false
+    default: "20"
+runs:
+  using: "node20"
+  main: "dist/index.js"

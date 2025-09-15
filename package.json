@@ -1,0 +1,13 @@
+{
+  "name": "one-danger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "danger": "danger ci"
+  },
+  "dependencies": {
+    "danger": "13.0.*"
+  }
+}
