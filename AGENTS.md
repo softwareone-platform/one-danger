@@ -24,6 +24,7 @@ Link to them; do not duplicate them here.
 - `tests/` — `node:test` suites.
 - `dist/index.js` — action launcher that runs `danger ci` at runtime.
 - `action.yml` — GitHub Action definition.
+- `.github/workflows/` — CI (`pr-build.yml`, runs `make check-all`) and release (`release.yml`).
 
 ## Conventions
 
