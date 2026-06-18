@@ -1,0 +1,11 @@
+# Configuration for GitHub's automatically generated release notes.
+changelog:
+  categories:
+    - title: Features
+      labels: ["enhancement", "feature"]
+    - title: Fixes
+      labels: ["bug", "fix"]
+    - title: Maintenance
+      labels: ["chore", "dependencies", "ci", "documentation"]
+    - title: Other Changes
+      labels: ["*"]

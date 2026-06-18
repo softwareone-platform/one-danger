@@ -34,3 +34,35 @@ make danger          # run Danger locally (danger ci)
 - The asynchronous release→main linkage check lives in `src/release-linkage.js`.
 - Every new or changed rule must be covered by a test in `tests/`. See
   [testing.md](testing.md).
+
+## Continuous integration
+
+`.github/workflows/pr-build.yml` runs on every pull request (and on pushes to `main` and
+`release/*`). It installs dependencies and runs `make check-all` (Biome, tests, and the
+lockfile-sync check). PRs must be green before merge.
+
+## Releasing
+
+The action has no build step — `dist/index.js` is a plain launcher that runs `danger ci` at
+runtime, so a release is just a tag plus a GitHub Release.
+
+Releases are cut by the **Release** workflow (`.github/workflows/release.yml`), triggered
+manually with `workflow_dispatch`:
+
+1. Run the workflow against the branch you want to release from (`main` → pre-release,
+   `release/*` → latest), passing a `version` input in **`X.Y.Z` format, without a `v` prefix**
+   (for example `1.2.3`).
+2. The workflow validates the version, then:
+   - creates the annotated tag `X.Y.Z`,
+   - creates a GitHub Release titled **`vX.Y.Z`** with auto-generated notes (categorized via
+     `.github/release.yml`), and
+   - for stable (`release/*`) releases, moves the major tag (for example `1`) to the release
+     commit.
+
+The tag is `X.Y.Z`; only the GitHub Release title carries the `v` prefix.
+
+Consumers pin the major tag:
+
+```yaml
+- uses: softwareone-platform/one-danger@1
+```

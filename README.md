@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: softwareone-platform/one-danger@v1
+      - uses: softwareone-platform/one-danger@1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 ```
