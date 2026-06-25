@@ -12,9 +12,9 @@
     "format": "biome format --write ."
   },
   "dependencies": {
-    "danger": "13.0.7"
+    "danger": "13.0.10"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.0"
+    "@biomejs/biome": "2.5.1"
   }
 }
