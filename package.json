@@ -15,6 +15,6 @@
     "danger": "14.0.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.12"
+    "@biomejs/biome": "2.5.14"
   }
 }
